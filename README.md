@@ -52,3 +52,21 @@ All tools conform to the stable public schema `groundwork/1`.
 | `scan_vulnerabilities` | Queries the live Open Source Vulnerabilities database (`api.osv.dev`) for CVEs, GHSA advisories, and severity ratings for exact package versions. | Advisory list & CVE IDs |
 | `verify_installed` | Inspects local `node_modules` without internet access. Enforces path confinement and strictly rejects attempts to read `.env` or sensitive project files. | Local package version & export AST |
 
+### 📋 Plan Module (Spec-Driven Development Engine)
+
+| Tool | What It Does | Outputs |
+|---|---|---|
+| `plan_brainstorm` | Generates at most 3 focused clarifying questions, scope reduction frameworks (MoSCoW, Smallest Lovable v1), and defaults. Automatically skips questions if user context is already known. Bilingual (EN/ID). | `blockingQuestions`, `frameworks`, `nextStep` |
+| `plan_template` | Generates structured SDD skeletons (`prd`, `brief`, `tasks`, `workflow`, `decisions`) harmonized with [`denvora-ai-skills`](https://github.com/ardenpratamamaskuri404/denvora-ai-skills) `prd-blueprint.md`. | Bilingual sections & markdown skeleton |
+| `plan_check` | Quality gate for project plans: checks for missing sections, detects ambiguous words (*"fast"*, *"easy"*, *"bagus"*) lacking measurable metrics, verifies non-goals, and flags leaked API keys. | `ready` vs `needs-work` with blocker list |
+| `plan_next_slice` | Parses markdown task lists with checkboxes (`- [ ]`), dependencies (`[after: T1]`), and verification steps (`[verify: npm test]`), returning the next unblocked actionable task. | Next task, blocked tasks, deadlock detection |
+
+### ⚡ Core Status Tool
+
+- `groundwork_status`: Reports runtime invariants, active security shield boundaries, and transport health over stdio.
+
+---
+
+## 🛡️ Secret & Privacy Shield
+
+User security and confidentiality are top priorities. Denvora Groundwork enforces hard technical boundaries:
