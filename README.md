@@ -102,14 +102,14 @@ Add Groundwork to your Antigravity MCP configuration:
 {
   "mcpServers": {
     "denvora-groundwork": {
-      "command": "node",
-      "args": ["c:/laragon/www/denvora-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
     }
   }
 }
 ```
 
-*(Or via npx once published: `"command": "npx", "args": ["-y", "denvora-groundwork"]`)*
+> 💡 **For local source clones:** Replace with `"command": "node"` and `"args": ["<absolute-path-to-repo>/dist/index.js"]`.
 
 ### 2. Claude Desktop & Claude Code
 
@@ -119,8 +119,8 @@ Add Groundwork to `%APPDATA%\Claude\claude_desktop_config.json` (Windows) or `~/
 {
   "mcpServers": {
     "denvora-groundwork": {
-      "command": "node",
-      "args": ["c:/laragon/www/denvora-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
     }
   }
 }
@@ -131,7 +131,7 @@ Add Groundwork to `%APPDATA%\Claude\claude_desktop_config.json` (Windows) or `~/
 In Cursor Settings → **Features** → **MCP** → **Add New MCP Server**:
 - **Name:** `denvora-groundwork`
 - **Type:** `command`
-- **Command:** `node c:/laragon/www/denvora-mcp/dist/index.js`
+- **Command:** `npx -y denvora-groundwork`
 
 ### 4. Kiro IDE
 
@@ -141,8 +141,8 @@ Add to `.kiro/settings/mcp.json`:
 {
   "mcpServers": {
     "denvora-groundwork": {
-      "command": "node",
-      "args": ["c:/laragon/www/denvora-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
     }
   }
 }
