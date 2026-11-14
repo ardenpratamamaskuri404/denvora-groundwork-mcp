@@ -88,3 +88,21 @@ See [`SECURITY.md`](SECURITY.md) for our complete security policy and reporting 
 
 ## 🚀 Quickstart & Installation
 
+Groundwork runs locally on your machine over standard `stdio` transport. You can install and run it using either **Plan A (Global Instant)** or **Plan B (Local Clone)**:
+
+### 📦 Choose Your Installation Plan
+
+| Method | Best For | Prerequisites | Command |
+|---|---|---|---|
+| **Plan A: Global Instant** | Quickest setup, zero manual cloning | Node.js (>= 18) | `npx -y denvora-groundwork`<br/>*or* `npx github:ardenpratamamaskuri404/denvora-groundwork-mcp` |
+| **Plan B: Local Clone** | Offline use, custom modification, auditing | Git + Node.js (>= 18) | `node <path-to-repo>/dist/index.js` |
+
+---
+
+### Configuration by Client
+
+#### 1. Antigravity IDE & CLI
+
+Open **MCP Servers** in Antigravity → **Manage MCP Servers** → **View raw config** (`mcp_config.json`):
+
+**Plan A (Global via NPX):**
