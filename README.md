@@ -340,3 +340,21 @@ Tambahkan ke berkas `.kiro/settings/mcp.json`:
       "args": ["-y", "denvora-groundwork"]
     }
   }
+}
+```
+
+---
+
+### 📋 Daftar 10 Alat Groundwork & Contoh Perintah
+
+| Nama Alat | Fungsi Singkat | Contoh Instruksi ke AI |
+|---|---|---|
+| `verify_package` | Memeriksa eksistensi package npm dan jenis deklarasi TypeScript. | *"Tolong periksa apakah package `lucide-react` ada di npm dan apakah memiliki built-in types."* |
+| `verify_symbol` | Memverifikasi apakah method, function, atau class benar-benar di-export oleh library. | *"Verifikasi apakah `zod` meng-export method `z.string()` sebelum kita gunakan dalam skema."* |
+| `suggest_symbol` | Memberikan alternatif nama export yang tepat jika terjadi typo. | *"Saya lupa nama fungsi di package `date-fns` untuk memformat tanggal, tolong carikan yang tepat."* |
+| `scan_vulnerabilities` | Memeriksa laporan CVE keamanan pada versi package tertentu. | *"Cek apakah `express` versi `4.17.1` memiliki kerentanan keamanan yang tercatat di OSV."* |
+| `verify_installed` | Memeriksa package lokal di folder `node_modules` proyek tanpa internet. | *"Periksa versi `typescript` yang terpasang di proyek lokal kita."* |
+| `plan_brainstorm` | Mengajukan pertanyaan kunci untuk memperjelas kebutuhan fitur baru. | *"Saya ingin membuat fitur ekspor PDF, ajukan pertanyaan klarifikasi sebelum mulai merancang."* |
+| `plan_template` | Menyediakan cetak biru dokumen teknis (PRD, Tasks, Architecture). | *"Buatkan template PRD Blueprint untuk modul autentikasi pengguna."* |
+| `plan_check` | Memvalidasi kelengkapan dokumen rencana dan mendeteksi ambiguitas. | *"Tolong audit file `specs.md`, pastikan tidak ada istilah ambigu dan semua kriteria verifikasi terpenuhi."* |
+| `plan_next_slice` | Menentukan langkah berikutnya yang belum terhambat dependensi. | *"Baca daftar tugas di `TODO.md` dan beri tahu saya task mana yang harus dikerjakan selanjutnya."* |
