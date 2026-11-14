@@ -15,5 +15,29 @@
     "@types/tar": "^6.1.13",
     "typescript": "^5.7.3",
     "vitest": "^5.1.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "antigravity",
+    "claude",
+    "kiro",
+    "cursor",
+    "verification",
+    "planning",
+    "groundwork",
+    "agent-skills"
+  ],
+  "author": "Arden Pratama Maskuri <ardenpratamam2008@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp.git"
   }
 }
