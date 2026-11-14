@@ -142,3 +142,21 @@ Edit `%APPDATA%\Claude\claude_desktop_config.json` (Windows) or `~/Library/Appli
       "args": ["-y", "denvora-groundwork"]
     }
   }
+}
+```
+
+**Plan B (Local Clone):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
+      "args": ["/absolute/path/to/denvora-groundwork-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+#### 3. Cursor & VS Code
+
+In Cursor Settings → **Features** → **MCP** → **Add New MCP Server**:
