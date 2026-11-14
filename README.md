@@ -34,3 +34,21 @@ AI coding assistants sound convincing even when they are guessing. They hallucin
 
 <p align="center">
   <img src="assets/denvora-groundwork-architecture.png" alt="Denvora Groundwork MCP Architecture: AI Assistant Clients, Local Stdio Protocol, Dual-Engine Core, and Evidence-Backed Verdicts" width="100%">
+</p>
+
+---
+
+## 🛠️ The 10 Public Tools
+
+All tools conform to the stable public schema `groundwork/1`.
+
+### 🔍 Verify Module (npm / TypeScript AST Engine)
+
+| Tool | What It Does | Verdicts / Evidence |
+|---|---|---|
+| `verify_package` | Checks if an npm package exists, detects typosquat lookalike names, verifies version publication, and inspects TypeScript declaration types (`bundled`, `definitelytyped`, `none`). | `verified`, `not_found`, `unverifiable` |
+| `verify_symbol` | Downloads package tarball into an isolated memory sandbox, extracts `.d.ts` declarations, and runs TypeScript compiler AST analysis (`ts.createProgram`) to prove whether an exported function, class, or type actually exists. | `verified`, `not_found`, `unverifiable` |
+| `suggest_symbol` | Uses Levenshtein distance ranking to recommend the closest real exported symbol names when an AI or developer mistypes an API. | Nearest ranked symbol exports |
+| `scan_vulnerabilities` | Queries the live Open Source Vulnerabilities database (`api.osv.dev`) for CVEs, GHSA advisories, and severity ratings for exact package versions. | Advisory list & CVE IDs |
+| `verify_installed` | Inspects local `node_modules` without internet access. Enforces path confinement and strictly rejects attempts to read `.env` or sensitive project files. | Local package version & export AST |
+
