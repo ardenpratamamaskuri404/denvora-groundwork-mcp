@@ -376,3 +376,17 @@ Denvora Groundwork bekerja secara selaras dengan repositori [`denvora-ai-skills`
 - **Spec-Driven Planning:** Structured bilingual (ID / EN) templates for PRD, tasks, workflows, and briefs.
 - **Strict Privacy Shield:** Hardened boundary blocking credentials, `.env`, and secret leakage.
 - **Zero API Keys & Zero External LLM Calls:** 100% local, lightweight, and deterministic execution.
+
+---
+
+## 🤝 Contributing & Community
+
+Contributions are welcome! Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) before opening a pull request or submitting issues.
+
+---
+
+## 📄 License
+
+This project is open-source under the [MIT License](LICENSE).  
+Copyright (c) 2026 Arden Pratama Maskuri.
+
