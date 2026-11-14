@@ -80,3 +80,10 @@ export function isBlacklistedSecretFile(filePath: string): boolean {
 /**
  * Validates npm package name format (prevents directory traversal attacks like ../../.env).
  */
+export const PACKAGE_NAME_REGEX = /^(?:@[a-zA-Z0-9_.-]+\/)?[a-zA-Z0-9_.-]+$/;
+
+export function isValidPackageName(pkg: string): boolean {
+  if (!pkg || typeof pkg !== 'string') return false;
+  if (pkg.includes('..') || pkg.includes('\\') || pkg.includes(':')) return false;
+  return PACKAGE_NAME_REGEX.test(pkg.trim());
+}
