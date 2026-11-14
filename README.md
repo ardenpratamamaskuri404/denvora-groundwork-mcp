@@ -322,3 +322,21 @@ Edit file konfigurasi `%APPDATA%\Claude\claude_desktop_config.json` (Windows) at
 
 #### 3. Cursor & VS Code
 
+Masuk ke **Cursor Settings** → **Features** → **MCP** → **Add New MCP Server**:
+- **Name:** `denvora-groundwork`
+- **Type:** `command`
+- **Perintah Plan A:** `npx -y denvora-groundwork`
+- **Perintah Plan B:** `node /absolute/path/to/denvora-groundwork-mcp/dist/index.js`
+
+#### 4. Kiro IDE
+
+Tambahkan ke berkas `.kiro/settings/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
+    }
+  }
