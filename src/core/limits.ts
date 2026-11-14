@@ -26,3 +26,57 @@ export const LIMITS = {
  * Secret & Privacy Shield Blacklist patterns.
  * Tools strictly refuse to read or process files matching these names or extensions.
  */
+export const SECRET_FILE_PATTERNS = [
+  /^\.env(\..+)?$/i,
+  /^credentials(\..+)?$/i,
+  /^client_secrets.*\.json$/i,
+  /^service-account.*\.json$/i,
+  /^\.?git-credentials$/i,
+  /^\.?npmrc$/i,
+  /^\.?netrc$/i,
+  /^id_[a-zA-Z0-9_-]+$/i,
+  /\.pem$/i,
+  /\.key$/i,
+  /\.keystore$/i,
+  /\.pfx$/i,
+  /\.p12$/i,
+  /\.secret$/i,
+  /\.token$/i,
+  /^\.aws$/i,
+  /^\.ssh$/i,
+  /^\.gnupg$/i,
+];
+
+/**
+ * Checks if a filename or path targets a blacklisted credential/secret file.
+ */
+export function isBlacklistedSecretFile(filePath: string): boolean {
+  if (!filePath) return false;
+  const normalized = filePath.replace(/\\/g, '/').toLowerCase();
+
+  // Check any segment of the path against blacklist
+  const segments = normalized.split('/').filter(Boolean);
+  for (const seg of segments) {
+    if (SECRET_FILE_PATTERNS.some((pattern) => pattern.test(seg))) {
+      return true;
+    }
+  }
+
+  // Check full path for dangerous directory references
+  if (
+    normalized.includes('/.ssh/') ||
+    normalized.includes('/.aws/') ||
+    normalized.includes('/.gnupg/') ||
+    normalized.endsWith('/.ssh') ||
+    normalized.endsWith('/.aws') ||
+    normalized.endsWith('/.gnupg')
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Validates npm package name format (prevents directory traversal attacks like ../../.env).
+ */
