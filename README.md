@@ -196,3 +196,21 @@ Both can be used together for the ultimate Spec-Driven Development (SDD) experie
 ## 🧪 Development & Verification
 
 ```bash
+# Clone the repository
+git clone https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp.git
+cd denvora-groundwork-mcp
+
+# Install dependencies
+npm install
+
+# Compile strict TypeScript
+npm run build
+
+# Run unit tests (47 tests across 9 suites)
+npm test
+
+# Run end-to-end stdio JSON-RPC client check
+node scratch/test_mcp_client.mjs
+```
+
+---
