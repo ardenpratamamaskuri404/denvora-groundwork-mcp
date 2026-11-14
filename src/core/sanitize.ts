@@ -43,3 +43,56 @@ export function redactSecrets(text: string): string {
 
 /**
  * Strips dangerous invisible characters:
+ * - Null bytes (\0)
+ * - Control characters (0x00 - 0x1F except \n, \r, \t)
+ * - Directional override / bidi characters (U+202A to U+202E, U+2066 to U+2069)
+ * - Zero-width characters (U+200B to U+200D, U+FEFF)
+ */
+export function stripDangerousCharacters(text: string): string {
+  if (!text) return text;
+
+  return text
+    // Replace null bytes
+    .replace(/\0/g, '')
+    // Remove bidi overrides and zero-width characters
+    .replace(/[\u200B-\u200D\uFEFF\u202A-\u202E\u2066-\u2069]/g, '')
+    // Remove non-standard control characters (keep \t, \n, \r)
+    .replace(/[\x01-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
+}
+
+/**
+ * Truncates text cleanly to a maximum length, appending '...' if truncated.
+ */
+export function truncate(text: string, maxLength: number): string {
+  if (!text || text.length <= maxLength) return text;
+  if (maxLength <= 3) return text.slice(0, maxLength);
+  return `${text.slice(0, maxLength - 3)}...`;
+}
+
+/**
+ * Complete sanitization pipeline:
+ * 1. Redacts credentials
+ * 2. Strips bidi and invisible control characters
+ * 3. Truncates to max allowed length
+ */
+export function sanitize(text: string, maxLength: number = LIMITS.MAX_MESSAGE_CHARS): string {
+  if (typeof text !== 'string') return '';
+  const redacted = redactSecrets(text);
+  const stripped = stripDangerousCharacters(redacted);
+  return truncate(stripped.trim(), maxLength);
+}
+
+/**
+ * Strip comments from TypeScript declaration signatures (JSDoc, block and line comments).
+ */
+export function stripCommentsFromSignature(signature: string): string {
+  if (!signature) return '';
+  return signature
+    // Remove multi-line and JSDoc comments
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    // Remove single-line comments
+    .replace(/\/\/.*$/gm, '')
+    // Normalize extra whitespace
+    .replace(/\s+/g, ' ')
+    .trim();
+}
