@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/denvora-mcp-logo.png" alt="Denvora Groundwork MCP Logo" width="220" />
-
-# Denvora Groundwork MCP
+<p align="center">
+  <img src="assets/denvora-logo-mcp.png" alt="Denvora Groundwork MCP" width="640" />
+</p>
 
 **Ground your AI before it builds.**  
 *Deterministic verification and spec-driven planning MCP server for AI coding assistants.*
@@ -88,16 +88,24 @@ See [`SECURITY.md`](SECURITY.md) for our complete security policy and reporting 
 
 ## 🚀 Quickstart & Installation
 
-Groundwork runs locally on your machine via `node` or `npx` over the standard `stdio` transport. No external services or API keys required.
+Groundwork runs locally on your machine over standard `stdio` transport. You can install and run it using either **Plan A (Global Instant)** or **Plan B (Local Clone)**:
 
-### 1. Antigravity IDE & CLI
+### 📦 Choose Your Installation Plan
 
-Add Groundwork to your Antigravity MCP configuration:
+| Method | Best For | Prerequisites | Command |
+|---|---|---|---|
+| **Plan A: Global Instant** | Quickest setup, zero manual cloning | Node.js (>= 18) | `npx -y denvora-groundwork`<br/>*or* `npx github:ardenpratamamaskuri404/denvora-groundwork-mcp` |
+| **Plan B: Local Clone** | Offline use, custom modification, auditing | Git + Node.js (>= 18) | `node <path-to-repo>/dist/index.js` |
 
-1. Open **MCP Servers** in Antigravity.
-2. Select **Manage MCP Servers** → **View raw config** (`mcp_config.json`).
-3. Add the `denvora-groundwork` entry:
+---
 
+### Configuration by Client
+
+#### 1. Antigravity IDE & CLI
+
+Open **MCP Servers** in Antigravity → **Manage MCP Servers** → **View raw config** (`mcp_config.json`):
+
+**Plan A (Global via NPX):**
 ```json
 {
   "mcpServers": {
@@ -109,12 +117,23 @@ Add Groundwork to your Antigravity MCP configuration:
 }
 ```
 
-> 💡 **For local source clones:** Replace with `"command": "node"` and `"args": ["<absolute-path-to-repo>/dist/index.js"]`.
+**Plan B (Local Clone):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
+      "args": ["/path/to/denvora-groundwork-mcp/dist/index.js"]
+    }
+  }
+}
+```
 
-### 2. Claude Desktop & Claude Code
+#### 2. Claude Desktop & Claude Code
 
-Add Groundwork to `%APPDATA%\Claude\claude_desktop_config.json` (Windows) or `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
+Edit `%APPDATA%\Claude\claude_desktop_config.json` (Windows) or `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 
+**Plan A (Global via NPX):**
 ```json
 {
   "mcpServers": {
@@ -126,14 +145,27 @@ Add Groundwork to `%APPDATA%\Claude\claude_desktop_config.json` (Windows) or `~/
 }
 ```
 
-### 3. Cursor & VS Code
+**Plan B (Local Clone):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
+      "args": ["/absolute/path/to/denvora-groundwork-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+#### 3. Cursor & VS Code
 
 In Cursor Settings → **Features** → **MCP** → **Add New MCP Server**:
 - **Name:** `denvora-groundwork`
 - **Type:** `command`
-- **Command:** `npx -y denvora-groundwork`
+- **Plan A Command:** `npx -y denvora-groundwork`
+- **Plan B Command:** `node /absolute/path/to/denvora-groundwork-mcp/dist/index.js`
 
-### 4. Kiro IDE
+#### 4. Kiro IDE
 
 Add to `.kiro/settings/mcp.json`:
 
@@ -174,12 +206,167 @@ npm install
 # Compile strict TypeScript
 npm run build
 
-# Run unit tests (45 tests across 9 suites)
+# Run unit tests (47 tests across 9 suites)
 npm test
 
 # Run end-to-end stdio JSON-RPC client check
 node scratch/test_mcp_client.mjs
 ```
+
+---
+
+## Panduan Penggunaan & Instalasi (Bahasa Indonesia)
+
+Selamat datang di **Denvora Groundwork MCP**! Server MCP ini dibuat khusus untuk memverifikasi kebenaran kode secara deterministik dan menyusun rencana spesifikasi teknis (Spec-Driven Development) sebelum AI mulai menulis kode program.
+
+### ❓ Mengapa AI Coding Membutuhkan Denvora Groundwork?
+
+Ketika berinteraksi dengan AI Coding Assistant (seperti Antigravity, Claude, Cursor, atau Kiro), sering kali AI:
+- **Halusinasi Nama Fungsi/API:** Menyebutkan fungsi atau method package yang sebenarnya tidak pernah ada di library npm.
+- **Mengabaikan Versi:** Menggunakan sintaks lawas atau parameter yang sudah di-*deprecate*.
+- **Typosquatting:** Menggunakan nama package yang mirip dengan aslinya (misalnya `axio` alih-alih `axios`).
+- **Langsung Ngoding Tanpa Rencana:** Membuat kode acak-acakan tanpa arsitektur, batasan non-goals, atau tahapan kerja yang jelas.
+- **Risiko Privasi:** Berpotensi membaca atau memaparkan file rahasia seperti `.env`, kredensial basis data, atau API key.
+
+**Denvora Groundwork MCP** memecahkan masalah ini dengan menyediakan 10 alat deterministik yang berjalan langsung di komputer Anda melalui protokol standar `stdio`, **tanpa biaya API key tambahan** dan **tanpa panggilan LLM eksternal**.
+
+---
+
+### 🌟 Fitur Utama Denvora Groundwork
+
+1. **Modul Verifikasi (Verify):**
+   - **AST Declaration Analysis:** Mengunduh dan membaca file deklarasi `.d.ts` dari npm secara statis menggunakan TypeScript Compiler API. Verdict yang dihasilkan selalu 3 nilai pasti: `verified`, `not_found`, atau `unverifiable` (**bukan tebakan AI**).
+   - **Pencegahan Typosquatting:** Memeriksa jarak Levenshtein terhadap library populer di npm untuk mencegah serangan malicious package.
+   - **Audit Kerentanan (CVE):** Terhubung langsung ke basis data terbuka OSV (`api.osv.dev`) untuk mendeteksi celah keamanan versi package.
+   - **Saran Nama Symbol (`suggest_symbol`):** Memberikan rekomendasi nama export yang benar jika pengembang atau AI salah mengingat nama fungsi.
+
+2. **Modul Rencana (Plan):**
+   - **Brainstorming Terarah:** Menghasilkan maksimal 3 pertanyaan penjelas krusial dan kerangka prioritas (MoSCoW / Smallest Lovable v1).
+   - **Template Spesifikasi Bilingual:** Kerangka siap pakai untuk PRD, Brief, Task, dan Workflow dalam Bahasa Indonesia atau Inggris.
+   - **Pintu Gerbang Kualitas Rencana (`plan_check`):** Mendeteksi rencana yang belum lengkap, menandai kata-kata ambigu (seperti *"cepat"*, *"mudah"*, *"bagus"* tanpa tolok ukur jelas), dan mencegah API key bocor.
+   - **Pelacak Tugas Atomik (`plan_next_slice`):** Memilih tugas berikutnya yang belum terblokir berdasarkan dependensi dan kriteria verifikasi.
+
+3. **Perisai Privasi & Keamanan (Secret & Privacy Shield):**
+   - **Blacklist File Rahasia:** Menolak secara ketat setiap query atau pembacaan terhadap file `.env`, `.env.*`, `credentials.json`, `id_rsa`, sertifikat `.pem`, dan folder `~/.ssh` / `~/.aws`.
+   - **Sensor Otomatis (Redaction):** Mengubah otomatis semua string API key (`sk-...`, `ghp_...`, token bearer) menjadi teks aman `[REDACTED_SECRET]`.
+   - **Isolasi Sandbox & Tanpa Eksekusi:** Tidak pernah menjalankan skrip instalasi npm atau `require()` terhadap kode luar.
+
+---
+
+### 💻 Cara Pemasangan & Konfigurasi (Pilih Plan A atau Plan B)
+
+Anda dapat memilih salah satu metode instalasi di bawah ini:
+
+| Metode | Cocok Untuk | Syarat | Cara Pakai |
+|---|---|---|---|
+| **Plan A: Global Instan (NPX)** | Penggunaan langsung tanpa clone repositori | Node.js (>= 18) | `npx -y denvora-groundwork`<br/>*atau* `npx github:ardenpratamamaskuri404/denvora-groundwork-mcp` |
+| **Plan B: Klon Lokal (Development)** | Modifikasi kode, audit offline, berkontribusi | Git + Node.js (>= 18) | `node <path-ke-repo>/dist/index.js` |
+
+---
+
+#### 1. Antigravity IDE & CLI
+
+Buka berkas konfigurasi MCP (`mcp_config.json`) di Antigravity:
+
+**Plan A (Global via NPX):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
+    }
+  }
+}
+```
+
+**Plan B (Klon Lokal):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
+      "args": ["/path/to/denvora-groundwork-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+#### 2. Claude Desktop & Claude Code
+
+Edit file konfigurasi `%APPDATA%\Claude\claude_desktop_config.json` (Windows) atau `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
+
+**Plan A (Global via NPX):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
+    }
+  }
+}
+```
+
+**Plan B (Klon Lokal):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
+      "args": ["/absolute/path/to/denvora-groundwork-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+#### 3. Cursor & VS Code
+
+Masuk ke **Cursor Settings** → **Features** → **MCP** → **Add New MCP Server**:
+- **Name:** `denvora-groundwork`
+- **Type:** `command`
+- **Perintah Plan A:** `npx -y denvora-groundwork`
+- **Perintah Plan B:** `node /absolute/path/to/denvora-groundwork-mcp/dist/index.js`
+
+#### 4. Kiro IDE
+
+Tambahkan ke berkas `.kiro/settings/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
+    }
+  }
+}
+```
+
+---
+
+### 📋 Daftar 10 Alat Groundwork & Contoh Perintah
+
+| Nama Alat | Fungsi Singkat | Contoh Instruksi ke AI |
+|---|---|---|
+| `verify_package` | Memeriksa eksistensi package npm dan jenis deklarasi TypeScript. | *"Tolong periksa apakah package `lucide-react` ada di npm dan apakah memiliki built-in types."* |
+| `verify_symbol` | Memverifikasi apakah method, function, atau class benar-benar di-export oleh library. | *"Verifikasi apakah `zod` meng-export method `z.string()` sebelum kita gunakan dalam skema."* |
+| `suggest_symbol` | Memberikan alternatif nama export yang tepat jika terjadi typo. | *"Saya lupa nama fungsi di package `date-fns` untuk memformat tanggal, tolong carikan yang tepat."* |
+| `scan_vulnerabilities` | Memeriksa laporan CVE keamanan pada versi package tertentu. | *"Cek apakah `express` versi `4.17.1` memiliki kerentanan keamanan yang tercatat di OSV."* |
+| `verify_installed` | Memeriksa package lokal di folder `node_modules` proyek tanpa internet. | *"Periksa versi `typescript` yang terpasang di proyek lokal kita."* |
+| `plan_brainstorm` | Mengajukan pertanyaan kunci untuk memperjelas kebutuhan fitur baru. | *"Saya ingin membuat fitur ekspor PDF, ajukan pertanyaan klarifikasi sebelum mulai merancang."* |
+| `plan_template` | Menyediakan cetak biru dokumen teknis (PRD, Tasks, Architecture). | *"Buatkan template PRD Blueprint untuk modul autentikasi pengguna."* |
+| `plan_check` | Memvalidasi kelengkapan dokumen rencana dan mendeteksi ambiguitas. | *"Tolong audit file `specs.md`, pastikan tidak ada istilah ambigu dan semua kriteria verifikasi terpenuhi."* |
+| `plan_next_slice` | Menentukan langkah berikutnya yang belum terhambat dependensi. | *"Baca daftar tugas di `TODO.md` dan beri tahu saya task mana yang harus dikerjakan selanjutnya."* |
+| `groundwork_status` | Memeriksa status kesehatan server dan perisai privasi. | *"Cek status koneksi Denvora Groundwork MCP."* |
+
+---
+
+### 🤝 Sinergi dengan `denvora-ai-skills`
+
+Denvora Groundwork bekerja secara selaras dengan repositori [`denvora-ai-skills`](https://github.com/ardenpratamamaskuri404/denvora-ai-skills):
+- **`denvora-ai-skills`:** Mengatur pola pikir, gaya komunikasi empatik bilingual, routing alur kerja, dan interaksi persetujuan dengan pengguna.
+- **`denvora-groundwork-mcp`:** Menyediakan validasi teknis faktual (AST TypeScript nyata, skor lolos gate PRD, audit CVE, dan pemilihan task atomik).
 
 ---
 

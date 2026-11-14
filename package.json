@@ -1,0 +1,57 @@
+{
+  "name": "denvora-groundwork",
+  "version": "0.1.0",
+  "description": "Deterministic verification and planning MCP server for AI coding assistants",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "denvora-groundwork": "./dist/index.js",
+    "denvora-groundwork-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "assets"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "antigravity",
+    "claude",
+    "kiro",
+    "cursor",
+    "verification",
+    "planning",
+    "groundwork",
+    "agent-skills"
+  ],
+  "author": "Arden Pratama Maskuri <ardenpratamam2008@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "tar": "^7.5.23",
+    "typescript": "^5.7.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/tar": "^6.1.13",
+    "vitest": "^5.1.0"
+  }
+}
