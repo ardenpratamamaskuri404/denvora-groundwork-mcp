@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+
+# Local cache
+.cache/
+data/cache/
+
+# Environment and secrets (Secret Shield)
+.env
+.env.*
+*.env
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+
+# Scratch scripts (temporary)
+scratch/
+
+# OS files
+.DS_Store
+Thumbs.db
