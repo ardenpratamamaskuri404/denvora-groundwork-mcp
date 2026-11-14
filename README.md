@@ -232,3 +232,21 @@ Ketika berinteraksi dengan AI Coding Assistant (seperti Antigravity, Claude, Cur
 
 ---
 
+### 🌟 Fitur Utama Denvora Groundwork
+
+1. **Modul Verifikasi (Verify):**
+   - **AST Declaration Analysis:** Mengunduh dan membaca file deklarasi `.d.ts` dari npm secara statis menggunakan TypeScript Compiler API. Verdict yang dihasilkan selalu 3 nilai pasti: `verified`, `not_found`, atau `unverifiable` (**bukan tebakan AI**).
+   - **Pencegahan Typosquatting:** Memeriksa jarak Levenshtein terhadap library populer di npm untuk mencegah serangan malicious package.
+   - **Audit Kerentanan (CVE):** Terhubung langsung ke basis data terbuka OSV (`api.osv.dev`) untuk mendeteksi celah keamanan versi package.
+   - **Saran Nama Symbol (`suggest_symbol`):** Memberikan rekomendasi nama export yang benar jika pengembang atau AI salah mengingat nama fungsi.
+
+2. **Modul Rencana (Plan):**
+   - **Brainstorming Terarah:** Menghasilkan maksimal 3 pertanyaan penjelas krusial dan kerangka prioritas (MoSCoW / Smallest Lovable v1).
+   - **Template Spesifikasi Bilingual:** Kerangka siap pakai untuk PRD, Brief, Task, dan Workflow dalam Bahasa Indonesia atau Inggris.
+   - **Pintu Gerbang Kualitas Rencana (`plan_check`):** Mendeteksi rencana yang belum lengkap, menandai kata-kata ambigu (seperti *"cepat"*, *"mudah"*, *"bagus"* tanpa tolok ukur jelas), dan mencegah API key bocor.
+   - **Pelacak Tugas Atomik (`plan_next_slice`):** Memilih tugas berikutnya yang belum terblokir berdasarkan dependensi dan kriteria verifikasi.
+
+3. **Perisai Privasi & Keamanan (Secret & Privacy Shield):**
+   - **Blacklist File Rahasia:** Menolak secara ketat setiap query atau pembacaan terhadap file `.env`, `.env.*`, `credentials.json`, `id_rsa`, sertifikat `.pem`, dan folder `~/.ssh` / `~/.aws`.
+   - **Sensor Otomatis (Redaction):** Mengubah otomatis semua string API key (`sk-...`, `ghp_...`, token bearer) menjadi teks aman `[REDACTED_SECRET]`.
+   - **Isolasi Sandbox & Tanpa Eksekusi:** Tidak pernah menjalankan skrip instalasi npm atau `require()` terhadap kode luar.
