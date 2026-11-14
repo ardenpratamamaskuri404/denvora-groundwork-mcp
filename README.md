@@ -178,3 +178,21 @@ Add to `.kiro/settings/mcp.json`:
     }
   }
 }
+```
+
+---
+
+## 🤝 Synergy with `denvora-ai-skills`
+
+Denvora Groundwork is designed as the native deterministic engine for [`denvora-ai-skills`](https://github.com/ardenpratamamaskuri404/denvora-ai-skills):
+
+- **Skill:** Governs *how* the AI interacts with you (bilingual empathy, mode router, brainstorming questions, and interactive approval).
+- **Groundwork MCP:** Provides the *objective facts* (AST export checking, CVE audits, PRD quality gate scoring, and unblocked task resolution).
+
+Both can be used together for the ultimate Spec-Driven Development (SDD) experience, or standalone.
+
+---
+
+## 🧪 Development & Verification
+
+```bash
