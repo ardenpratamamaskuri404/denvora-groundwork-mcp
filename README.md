@@ -40,7 +40,7 @@ AI coding assistants sound convincing even when they are guessing. They hallucin
 
 ## 🛠️ The 10 Public Tools
 
-All tools conform to the stable public schema `groundwork/1` documented in [`docs/TOOLS.md`](docs/TOOLS.md).
+All tools conform to the stable public schema `groundwork/1`.
 
 ### 🔍 Verify Module (npm / TypeScript AST Engine)
 
@@ -183,16 +183,12 @@ node scratch/test_mcp_client.mjs
 
 ---
 
-## 📚 Documentation Map
+## 📚 Core Principles
 
-- [`docs/PRD.md`](docs/PRD.md) — Product requirements, user personas, v1 scope, and success criteria.
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — Architecture diagrams, data flow, AST analysis, and caching.
-- [`docs/TOOLS.md`](docs/TOOLS.md) — Public API contract and JSON schemas for all tools (`groundwork/1`).
-- [`docs/SKILL-COMBO.md`](docs/SKILL-COMBO.md) — How Groundwork MCP and `denvora-ai-skills` collaborate.
-- [`docs/TEMPLATES.md`](docs/TEMPLATES.md) — Bilingual knowledge pack templates (BRIEF, PRD, TASKS, DECISIONS).
-- [`docs/SECURITY.md`](docs/SECURITY.md) — Threat model, tarball containment rules, and Secret Shield.
-- [`docs/TESTING-EVAL.md`](docs/TESTING-EVAL.md) — Benchmark, test layers, and release gates.
-- [`docs/ROADMAP.md`](docs/ROADMAP.md) — Step-by-step build order from Phase 0 to v1.0.
+- **Deterministic Facts:** Static AST declaration analysis without guessing or hallucinating APIs.
+- **Spec-Driven Planning:** Structured bilingual (ID / EN) templates for PRD, tasks, workflows, and briefs.
+- **Strict Privacy Shield:** Hardened boundary blocking credentials, `.env`, and secret leakage.
+- **Zero API Keys & Zero External LLM Calls:** 100% local, lightweight, and deterministic execution.
 
 ---
 

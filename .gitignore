@@ -8,6 +8,10 @@ dist/
 .cache/
 data/cache/
 
+# Internal design & planning documents (private blueprints)
+docs/
+AGENTS.md
+
 # Environment and secrets (Secret Shield)
 .env
 .env.*
