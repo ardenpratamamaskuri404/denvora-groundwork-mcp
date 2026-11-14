@@ -214,3 +214,21 @@ node scratch/test_mcp_client.mjs
 ```
 
 ---
+
+## Panduan Penggunaan & Instalasi (Bahasa Indonesia)
+
+Selamat datang di **Denvora Groundwork MCP**! Server MCP ini dibuat khusus untuk memverifikasi kebenaran kode secara deterministik dan menyusun rencana spesifikasi teknis (Spec-Driven Development) sebelum AI mulai menulis kode program.
+
+### ❓ Mengapa AI Coding Membutuhkan Denvora Groundwork?
+
+Ketika berinteraksi dengan AI Coding Assistant (seperti Antigravity, Claude, Cursor, atau Kiro), sering kali AI:
+- **Halusinasi Nama Fungsi/API:** Menyebutkan fungsi atau method package yang sebenarnya tidak pernah ada di library npm.
+- **Mengabaikan Versi:** Menggunakan sintaks lawas atau parameter yang sudah di-*deprecate*.
+- **Typosquatting:** Menggunakan nama package yang mirip dengan aslinya (misalnya `axio` alih-alih `axios`).
+- **Langsung Ngoding Tanpa Rencana:** Membuat kode acak-acakan tanpa arsitektur, batasan non-goals, atau tahapan kerja yang jelas.
+- **Risiko Privasi:** Berpotensi membaca atau memaparkan file rahasia seperti `.env`, kredensial basis data, atau API key.
+
+**Denvora Groundwork MCP** memecahkan masalah ini dengan menyediakan 10 alat deterministik yang berjalan langsung di komputer Anda melalui protokol standar `stdio`, **tanpa biaya API key tambahan** dan **tanpa panggilan LLM eksternal**.
+
+---
+
