@@ -39,5 +39,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp.git"
+  },
+  "homepage": "https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/ardenpratamamaskuri404/denvora-groundwork-mcp/issues"
   }
 }
