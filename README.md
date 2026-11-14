@@ -286,3 +286,21 @@ Buka berkas konfigurasi MCP (`mcp_config.json`) di Antigravity:
   "mcpServers": {
     "denvora-groundwork": {
       "command": "node",
+      "args": ["/path/to/denvora-groundwork-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+#### 2. Claude Desktop & Claude Code
+
+Edit file konfigurasi `%APPDATA%\Claude\claude_desktop_config.json` (Windows) atau `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
+
+**Plan A (Global via NPX):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
+    }
