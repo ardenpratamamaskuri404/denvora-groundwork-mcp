@@ -250,3 +250,21 @@ Ketika berinteraksi dengan AI Coding Assistant (seperti Antigravity, Claude, Cur
    - **Blacklist File Rahasia:** Menolak secara ketat setiap query atau pembacaan terhadap file `.env`, `.env.*`, `credentials.json`, `id_rsa`, sertifikat `.pem`, dan folder `~/.ssh` / `~/.aws`.
    - **Sensor Otomatis (Redaction):** Mengubah otomatis semua string API key (`sk-...`, `ghp_...`, token bearer) menjadi teks aman `[REDACTED_SECRET]`.
    - **Isolasi Sandbox & Tanpa Eksekusi:** Tidak pernah menjalankan skrip instalasi npm atau `require()` terhadap kode luar.
+
+---
+
+### 💻 Cara Pemasangan & Konfigurasi (Pilih Plan A atau Plan B)
+
+Anda dapat memilih salah satu metode instalasi di bawah ini:
+
+| Metode | Cocok Untuk | Syarat | Cara Pakai |
+|---|---|---|---|
+| **Plan A: Global Instan (NPX)** | Penggunaan langsung tanpa clone repositori | Node.js (>= 18) | `npx -y denvora-groundwork`<br/>*atau* `npx github:ardenpratamamaskuri404/denvora-groundwork-mcp` |
+| **Plan B: Klon Lokal (Development)** | Modifikasi kode, audit offline, berkontribusi | Git + Node.js (>= 18) | `node <path-ke-repo>/dist/index.js` |
+
+---
+
+#### 1. Antigravity IDE & CLI
+
+Buka berkas konfigurasi MCP (`mcp_config.json`) di Antigravity:
+
