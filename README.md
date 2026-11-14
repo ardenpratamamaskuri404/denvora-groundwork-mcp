@@ -70,3 +70,21 @@ All tools conform to the stable public schema `groundwork/1`.
 ## 🛡️ Secret & Privacy Shield
 
 User security and confidentiality are top priorities. Denvora Groundwork enforces hard technical boundaries:
+
+- **Strict File Blacklist:** The server strictly rejects queries targeting sensitive files:
+  - `.env`, `.env.*`, `.env.local`, `.env.production`
+  - `credentials.json`, `client_secrets.json`, `service-account*.json`
+  - `.npmrc`, `.git-credentials`, `.netrc`
+  - `id_rsa`, `id_ed25519`, `*.pem`, `*.key`, `*.keystore`, `*.pfx`, `*.p12`
+  - Sensitive directories: `~/.ssh`, `~/.aws`, `~/.gnupg`
+- **Path Traversal Protection:** Input package names are strictly validated (`isValidPackageName`); path traversals like `../../.env` are immediately blocked.
+- **Credential Auto-Redaction:** Any API keys (`sk-...`, `ghp_...`, `AKIA...`, Bearer tokens) or passwords in plan documents or arguments are automatically replaced with `[REDACTED_SECRET]`.
+- **Zero Code Execution:** Groundwork never runs `npm install`, post-install hooks, or `require()` on downloaded tarballs.
+- **Host Allowlist:** HTTPS network requests are restricted exclusively to `registry.npmjs.org` and `api.osv.dev`.
+
+See [`SECURITY.md`](SECURITY.md) for our complete security policy and reporting guidelines.
+
+---
+
+## 🚀 Quickstart & Installation
+
