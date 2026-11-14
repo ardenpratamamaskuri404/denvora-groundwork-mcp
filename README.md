@@ -389,4 +389,3 @@ Contributions are welcome! Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and 
 
 This project is open-source under the [MIT License](LICENSE).  
 Copyright (c) 2026 Arden Pratama Maskuri.
-
