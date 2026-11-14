@@ -268,3 +268,21 @@ Anda dapat memilih salah satu metode instalasi di bawah ini:
 
 Buka berkas konfigurasi MCP (`mcp_config.json`) di Antigravity:
 
+**Plan A (Global via NPX):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
+    }
+  }
+}
+```
+
+**Plan B (Klon Lokal):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
