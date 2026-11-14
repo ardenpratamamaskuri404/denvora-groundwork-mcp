@@ -106,3 +106,21 @@ Groundwork runs locally on your machine over standard `stdio` transport. You can
 Open **MCP Servers** in Antigravity → **Manage MCP Servers** → **View raw config** (`mcp_config.json`):
 
 **Plan A (Global via NPX):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "npx",
+      "args": ["-y", "denvora-groundwork"]
+    }
+  }
+}
+```
+
+**Plan B (Local Clone):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
+      "args": ["/path/to/denvora-groundwork-mcp/dist/index.js"]
