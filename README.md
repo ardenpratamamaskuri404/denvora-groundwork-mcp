@@ -358,3 +358,21 @@ Tambahkan ke berkas `.kiro/settings/mcp.json`:
 | `plan_template` | Menyediakan cetak biru dokumen teknis (PRD, Tasks, Architecture). | *"Buatkan template PRD Blueprint untuk modul autentikasi pengguna."* |
 | `plan_check` | Memvalidasi kelengkapan dokumen rencana dan mendeteksi ambiguitas. | *"Tolong audit file `specs.md`, pastikan tidak ada istilah ambigu dan semua kriteria verifikasi terpenuhi."* |
 | `plan_next_slice` | Menentukan langkah berikutnya yang belum terhambat dependensi. | *"Baca daftar tugas di `TODO.md` dan beri tahu saya task mana yang harus dikerjakan selanjutnya."* |
+| `groundwork_status` | Memeriksa status kesehatan server dan perisai privasi. | *"Cek status koneksi Denvora Groundwork MCP."* |
+
+---
+
+### 🤝 Sinergi dengan `denvora-ai-skills`
+
+Denvora Groundwork bekerja secara selaras dengan repositori [`denvora-ai-skills`](https://github.com/ardenpratamamaskuri404/denvora-ai-skills):
+- **`denvora-ai-skills`:** Mengatur pola pikir, gaya komunikasi empatik bilingual, routing alur kerja, dan interaksi persetujuan dengan pengguna.
+- **`denvora-groundwork-mcp`:** Menyediakan validasi teknis faktual (AST TypeScript nyata, skor lolos gate PRD, audit CVE, dan pemilihan task atomik).
+
+---
+
+## 📚 Core Principles
+
+- **Deterministic Facts:** Static AST declaration analysis without guessing or hallucinating APIs.
+- **Spec-Driven Planning:** Structured bilingual (ID / EN) templates for PRD, tasks, workflows, and briefs.
+- **Strict Privacy Shield:** Hardened boundary blocking credentials, `.env`, and secret leakage.
+- **Zero API Keys & Zero External LLM Calls:** 100% local, lightweight, and deterministic execution.
