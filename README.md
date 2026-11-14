@@ -304,3 +304,21 @@ Edit file konfigurasi `%APPDATA%\Claude\claude_desktop_config.json` (Windows) at
       "command": "npx",
       "args": ["-y", "denvora-groundwork"]
     }
+  }
+}
+```
+
+**Plan B (Klon Lokal):**
+```json
+{
+  "mcpServers": {
+    "denvora-groundwork": {
+      "command": "node",
+      "args": ["/absolute/path/to/denvora-groundwork-mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+#### 3. Cursor & VS Code
+
